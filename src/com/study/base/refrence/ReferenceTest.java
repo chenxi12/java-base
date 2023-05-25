@@ -12,6 +12,7 @@ import java.lang.ref.WeakReference;
  */
 public class ReferenceTest {
     public static void main(String[] args) {
+        //发生 gc 的时候不会被回收
         Person person = new Person();
         System.out.println(person);
         System.gc();
@@ -24,7 +25,7 @@ public class ReferenceTest {
         System.gc();
         System.out.println(softReference.get());
 
-        /*弱引用都会回收*/
+        /*弱引用都会回收  --> ThreadLocal 中使用*/
         Person obj = new Person();
         WeakReference<Object> weakReference = new WeakReference<>(obj);
         obj = null;
@@ -32,7 +33,7 @@ public class ReferenceTest {
         System.gc();
         System.out.println(weakReference.get());
 
-        //虚引用
+        //虚引用 -->元空间的直接内存中使用
         ReferenceQueue<Object> queue = new ReferenceQueue<>();
         PhantomReference<String> phantomReference = new PhantomReference<>("虚引用 ", queue);
         System.out.println("虚引用:" + phantomReference.get());
