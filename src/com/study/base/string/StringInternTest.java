@@ -41,5 +41,17 @@ public class StringInternTest {
 //        System.out.println(s3 == s4);//true
 //        System.out.println(s3 == "hellohello");//true
 
+        StringDemo stringDemo = new StringDemo();
+        stringDemo.setName("Hello");
+        stringDemo = new StringDemo();
+        System.out.println(stringDemo);
+        String str = new String("123");
+        str  = new String("456");
+        System.out.println(str);
+
+        StringBuffer stringBuffer = new StringBuffer("123");
+        StringBuffer reverse = stringBuffer.reverse();
+        System.out.println(reverse);
+
     }
 }
