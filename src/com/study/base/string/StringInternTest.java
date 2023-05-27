@@ -49,9 +49,6 @@ public class StringInternTest {
         str  = new String("456");
         System.out.println(str);
 
-        StringBuffer stringBuffer = new StringBuffer("123");
-        StringBuffer reverse = stringBuffer.reverse();
-        System.out.println(reverse);
 
     }
 }
