@@ -15,6 +15,12 @@ public class StringReverseDemo {
         System.out.println(reverse3(str));
     }
 
+    /**
+     * 折半反转
+     *
+     * @param str
+     * @return
+     */
     private static String reverse1(String str) {
         if ("".equals(str) || null == str) {
             return "";
@@ -68,7 +74,7 @@ public class StringReverseDemo {
         for (int i = 0; i < bytes.length; i++) {
             byteStack.push(bytes[i]);
         }
-        while (!byteStack.empty()){
+        while (!byteStack.empty()) {
             char pop = byteStack.pop();
             result.append(pop);
         }
