@@ -38,6 +38,11 @@ public class TreeDemo {
         //层次遍历
         System.out.println("层次遍历");
         levelPrintTree(root);
+
+        prePrint(root);
+
+        System.out.println("---");
+        levelPrint(root);
     }
 
     /**
@@ -64,7 +69,7 @@ public class TreeDemo {
     }
 
     /**
-     * 后序遍历
+     * 后序遍历 左右根
      *
      * @param root
      */
@@ -97,7 +102,7 @@ public class TreeDemo {
     }
 
     /**
-     * 中序遍历
+     * 中序遍历 左根右
      *
      * @param node
      */
@@ -110,5 +115,39 @@ public class TreeDemo {
         System.out.println(node.getValue());
         TreeNode rightTreeNode = node.getRightTreeNode();
         midPrintTree(rightTreeNode);
+    }
+
+    /**
+     * 根左右 前序
+     *
+     * @param treeNode
+     */
+    private static void prePrint(TreeNode treeNode) {
+        if (Objects.isNull(treeNode)) {
+            return;
+        }
+        Object value = treeNode.getValue();
+        System.out.println(value);
+        TreeNode leftTreeNode = treeNode.getLeftTreeNode();
+        prePrintTree(leftTreeNode);
+        prePrintTree(treeNode.getRightTreeNode());
+    }
+
+    private static void levelPrint(TreeNode treeNode) {
+        if (Objects.isNull(treeNode)) {
+            return;
+        }
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
+        nodeQueue.offer(treeNode);
+        while (!nodeQueue.isEmpty()) {
+            TreeNode poll = nodeQueue.poll();
+            System.out.println(poll.getValue());
+            if (!Objects.isNull(poll.getLeftTreeNode())) {
+                nodeQueue.offer(poll.getLeftTreeNode());
+            }
+            if (!Objects.isNull(poll.getRightTreeNode())) {
+                nodeQueue.offer(poll.getRightTreeNode());
+            }
+        }
     }
 }
