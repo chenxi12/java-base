@@ -9,7 +9,7 @@ package com.study.base.day2025.string;
 public class BigNumSum2 {
     public static void main(String[] args) {
         String str1 = "1";
-        String str2 = "99";
+        String str2 = "999";
 
         String sum = bigSum(str1, str2);
         System.out.println(sum);
